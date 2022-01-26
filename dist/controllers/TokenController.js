@@ -32,7 +32,7 @@ var _User = require('../models/User');
         expiresIn: process.env.TOKEN_EXPIRATION,
       });
 
-      return response.json({ token });
+      return response.json({ token, user: { nome: user.nome, id, email } });
     } catch (e) {
       console.log(e);
       return response.status(400).json(e);
